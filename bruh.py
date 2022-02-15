@@ -12,6 +12,6 @@ for line in sys.stdin:
   number_of_words += len(words)
   number_of_characters += len(line)
 
-print("lines:" + TAB_CHAR + number_of_lines)
-print("words:" + TAB_CHAR + number_of_words)
-print("characters:" + TAB_CHAR + number_of_characters)
+print("lines:" + TAB_CHAR + str(number_of_lines))
+print("words:" + TAB_CHAR + str(number_of_words))
+print("characters:" + TAB_CHAR + str(number_of_characters))
