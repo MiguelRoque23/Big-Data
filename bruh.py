@@ -10,7 +10,7 @@ for line in sys.stdin:
   words = line.strip().split(" ")
   number_of_lines += 1
   number_of_words += len(words)
-  number_of_characters += len(words)
+  number_of_characters += len(line)
 
 print("lines:" + TAB_CHAR + str(number_of_lines))
 print("words:" + TAB_CHAR + str(number_of_words))
