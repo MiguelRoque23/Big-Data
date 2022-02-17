@@ -16,5 +16,6 @@ for line in sys.stdin:
         lastKey = key
         sum += int(value)
         count += 1
+        
 if lastKey:
-    print('number of words:' + TAB_CHAR + str(sum/count))
+    print('Number of words:' + TAB_CHAR + str(sum / count))
