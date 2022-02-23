@@ -4,7 +4,7 @@ cnt_ratings = FOREACH group_ratings GENERATE group as movie_id, COUNT(ratings.ra
 filter_ratings = FILTER cnt_ratings BY nr_ratings >= 10;
 
 movies = LOAD '/root/input/u.item' USING PigStorage('|') AS (movie_id:int, movie_name:chararray);
-length_movies = FOREACH movies GENERATE group as movie_id, SIZE(movies.movie_name) as title_length;
+length_movies = FOREACH movies GENERATE group as movie_id, SIZE(movie_name:chararray) as title_length;
 
 joined = JOIN filter_ratings BY movie_id, length_movies BY movie_id;
 dataset = FOREACH joined GENERATE length_movies::movie_name as movie_name, filter_ratings::nr_ratings as nr_ratings, length_movies::title_length as title_length;
