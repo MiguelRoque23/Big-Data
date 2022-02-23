@@ -1,7 +1,7 @@
 ratings = LOAD '/root/input/u.data' USING PigStorage('\t') AS (movie_id:int, rating:int);
 group_ratings = GROUP ratings BY movie_id;
 cnt_ratings = FOREACH group_ratings GENERATE group as movie_id, COUNT(ratings.rating) as nr_ratings;
-filter_ratings = FILTER movie_id BY nr_ratings >= 10;
+filter_ratings = FILTER cnt_ratings BY nr_ratings >= 10;
 
 movies = LOAD '/root/input/u.item' USING PigStorage('|') AS (movie_id:int, movie_name:chararray);
 length_movies = FOREACH movies GENERATE group as movie_id, LENGTH(movies.movie_name) as title_length;
