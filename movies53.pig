@@ -10,3 +10,5 @@ len_movies = FOREACH group_movies GENERATE group as movie_id, SIZE(movies.movie_
 joined = JOIN filter_ratings BY movie_id, len_movies BY movie_id;
 dataset = FOREACH joined GENERATE filter_ratings::movie_id, len_movies::len_title as len_title;
 ordered = ORDER dataset BY title_length desc;
+
+ordered
